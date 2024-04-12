@@ -19,42 +19,16 @@ from winreg import *
 from datetime import datetime
 
 # Define paths relative to the script's directory
+# Add YARA rules with .yara extension
+# I have used YARA rules from this repositery
 YARA_RULES = [
-    "D:\\antivirus_pro_1\\reversinglabs-yara-rules-develop\\reversinglabs-yara-rules-develop\\yara\\backdoor\\Win32.Backdoor.Konni.yara",
-    "D:\\antivirus_pro_1\\reversinglabs-yara-rules-develop\\reversinglabs-yara-rules-develop\\yara\\backdoor\\Win64.Backdoor.Konni.yara",
-    "D:\\antivirus_pro_1\\reversinglabs-yara-rules-develop\\reversinglabs-yara-rules-develop\\yara\\backdoor\\Win64.Backdoor.Minodo.yara",
-    "D:\\antivirus_pro_1\\reversinglabs-yara-rules-develop\\reversinglabs-yara-rules-develop\\yara\\certificate\\blocklist.yara",
-    "D:\\antivirus_pro_1\\reversinglabs-yara-rules-develop\\reversinglabs-yara-rules-develop\\yara\\downloader\\Win32.Downloader.dlMarlboro.yara",
-    "D:\\antivirus_pro_1\\reversinglabs-yara-rules-develop\\reversinglabs-yara-rules-develop\\yara\\exploit\\Win32.Exploit.CVE20200601.yara",
-    "D:\\antivirus_pro_1\\reversinglabs-yara-rules-develop\\reversinglabs-yara-rules-develop\\yara\\infostealer\\Win32.Infostealer.StealC.yara",
-    "D:\\antivirus_pro_1\\reversinglabs-yara-rules-develop\\reversinglabs-yara-rules-develop\\yara\\infostealer\\Win32.Infostealer.ProjectHookPOS.yara",
-    "D:\\antivirus_pro_1\\reversinglabs-yara-rules-develop\\reversinglabs-yara-rules-develop\\yara\\infostealer\\Win32.Infostealer.MultigrainPOS.yara",
-    "D:\\antivirus_pro_1\\reversinglabs-yara-rules-develop\\reversinglabs-yara-rules-develop\\yara\\infostealer\\Win32.Infostealer.LumarStealer.yara",
-    "D:\\antivirus_pro_1\\reversinglabs-yara-rules-develop\\reversinglabs-yara-rules-develop\\yara\\pua\\Win32.PUA.Domaiq.yara",
-    "D:\\antivirus_pro_1\\reversinglabs-yara-rules-develop\\reversinglabs-yara-rules-develop\\yara\\trojan\\Win32.Trojan.TrickBot.yara",
-    "D:\\antivirus_pro_1\\reversinglabs-yara-rules-develop\\reversinglabs-yara-rules-develop\\yara\\trojan\\Win32.Trojan.IsaacWiper.yara",
-    "D:\\antivirus_pro_1\\reversinglabs-yara-rules-develop\\reversinglabs-yara-rules-develop\\yara\\trojan\\Win32.Trojan.HermeticWiper.yara",
-    "D:\\antivirus_pro_1\\reversinglabs-yara-rules-develop\\reversinglabs-yara-rules-develop\\yara\\trojan\\Win32.Trojan.Emotet.yara",
-    "D:\\antivirus_pro_1\\reversinglabs-yara-rules-develop\\reversinglabs-yara-rules-develop\\yara\\trojan\\Win32.Trojan.Dridex.yara",
-    "D:\\antivirus_pro_1\\reversinglabs-yara-rules-develop\\reversinglabs-yara-rules-develop\\yara\\trojan\\Win32.Trojan.CaddyWiper.yara",
-    "D:\\antivirus_pro_1\\reversinglabs-yara-rules-develop\\reversinglabs-yara-rules-develop\\yara\\trojan\\Win32.Trojan.BiBiWiper.yara",
-    "D:\\antivirus_pro_1\\reversinglabs-yara-rules-develop\\reversinglabs-yara-rules-develop\\yara\\virus\\Win32.Virus.Negt.yara",
-    "D:\\antivirus_pro_1\\reversinglabs-yara-rules-develop\\reversinglabs-yara-rules-develop\\yara\\virus\\Win32.Virus.Mocket.yara",
-    "D:\\antivirus_pro_1\\reversinglabs-yara-rules-develop\\reversinglabs-yara-rules-develop\\yara\\virus\\Win32.Virus.Greenp.yara",
-    "D:\\antivirus_pro_1\\reversinglabs-yara-rules-develop\\reversinglabs-yara-rules-develop\\yara\\virus\\Win32.Virus.Elerad.yara",
-    "D:\\antivirus_pro_1\\reversinglabs-yara-rules-develop\\reversinglabs-yara-rules-develop\\yara\\virus\\Win32.Virus.DeadCode.yara",
-    "D:\\antivirus_pro_1\\reversinglabs-yara-rules-develop\\reversinglabs-yara-rules-develop\\yara\\virus\\Win32.Virus.Cmay.yara",
-    "D:\\antivirus_pro_1\\reversinglabs-yara-rules-develop\\reversinglabs-yara-rules-develop\\yara\\virus\\Win32.Virus.Awfull.yara",
-    "D:\\antivirus_pro_1\\reversinglabs-yara-rules-develop\\reversinglabs-yara-rules-develop\\yara\\ransomware\\Bytecode.MSIL.Ransomware.CobraLocker.yara",
-    "D:\\antivirus_pro_1\\reversinglabs-yara-rules-develop\\reversinglabs-yara-rules-develop\\yara\\ransomware\\ByteCode.MSIL.Ransomware.ChupaCabra.yara",
-    "D:\\antivirus_pro_1\\reversinglabs-yara-rules-develop\\reversinglabs-yara-rules-develop\\yara\\ransomware\\ByteCode.MSIL.Ransomware.Apis.yara"
-
-
+    # Add full paths for example :- 
+    #"D:\\antivirus_pro_1\\reversinglabs-yara-rules-develop\\reversinglabs-yara-rules-develop\\yara\\backdoor\\Win32.Backdoor.Konni.yara",
 ]
 
 SIGNATURE_FILES = [
-    "D:\\antivirus_pro_1\\reversinglabs-yara-rules-develop\\reversinglabs-yara-rules-develop\\yara\\MD5 Hahses.txt",
-    "D:\\antivirus_pro_1\\reversinglabs-yara-rules-develop\\reversinglabs-yara-rules-develop\\yara\\VirusShare_00484.md5.txt",
+     # Add full paths for example :- 
+    #"D:\\antivirus_pro_1\\reversinglabs-yara-rules-develop\\reversinglabs-yara-rules-develop\\yara\\MD5 Hahses.txt",
 ]
 
 class AntivirusGUI(QMainWindow):
@@ -64,7 +38,7 @@ class AntivirusGUI(QMainWindow):
         """Initialize the main window and UI components."""
         super().__init__()
         self.antivirus = Antivirus()
-        self.setWindowTitle("Antivirus")
+        self.setWindowTitle("AntiVirus_Pro")
         self.setGeometry(100, 100, 800, 600)
         self.create_widgets()
         self.browse_button.clicked.connect(self.browse_directory)
