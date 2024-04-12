@@ -1,0 +1,52 @@
+**Documentation for Antivirus Program**
+
+**Introduction**
+
+The Antivirus program is designed to provide a user-friendly interface for scanning directories, files, PDF documents, archives, and registry keys for malware threats. It utilizes a combination of signature-based scanning and YARA rules to detect potential threats effectively. This documentation aims to provide an overview of the program's functionality, architecture, and usage instructions.
+
+**1. Overview**
+
+The Antivirus program offers the following key features:
+
+- Scanning directories, files, PDF documents, archives, and registry keys for malware.
+- Real-time detection of malware threats using signature-based scanning and YARA rules.
+- User-friendly interface for easy navigation and scan initiation.
+- Detailed reporting of scan results, including infected files and timestamps.
+- Exporting reports to external text files for further analysis.
+
+**2. Program Architecture**
+
+The program consists of the following main components:
+
+- **AntivirusGUI:** This class represents the main graphical user interface (GUI) window for the application. It provides buttons and input fields for selecting directories, initiating scans, and displaying scan results.
+
+- **Antivirus:** The core functionality of the antivirus program is encapsulated within this class. It handles loading malware signatures and YARA rules, scanning various types of files and directories, and detecting potential threats based on predefined patterns.
+
+- **ScannerThread:** This class extends QThread to perform scanning operations asynchronously in a separate thread. It prevents the GUI from freezing during scanning processes and emits signals to update the UI with scan results.
+
+**3. Functionality**
+
+The Antivirus program offers the following functionalities:
+
+- **Scanning:** Users can initiate scans of directories, files, PDF documents, archives, and registry keys using the provided interface. The program employs signature-based scanning and YARA rules to detect malware threats effectively.
+
+- **Real-Time Detection:** The program provides real-time detection of malware threats during the scanning process. It generates detailed reports of scan results, including information about infected files and timestamps.
+
+- **User Interaction:** The graphical user interface offers intuitive controls for selecting scan types, browsing directories, and initiating scans. Users can easily navigate the interface and view scan results in real-time.
+
+- **Reporting:** The program allows users to export detailed reports of scan results to external text files. This feature enables further analysis and documentation of malware threats detected by the antivirus application.
+
+**4. Usage Instructions**
+
+To use the Antivirus program, follow these steps:
+
+- Launch the application by executing the provided script.
+- Use the browse button to select the directory or file to scan.
+- Choose the desired scan type from the dropdown list.
+- Click the "Scan" or "Start" button to initiate the scanning process.
+- View the scan results in the text area, including information about infected files and timestamps.
+- Optionally, export the scan report to an external text file for further analysis.
+
+**5. Conclusion**
+
+The Antivirus program provides a reliable and user-friendly solution for detecting malware threats on a system. By leveraging signature-based scanning and YARA rules, it offers comprehensive protection against a wide range of potential threats. With its intuitive interface and detailed reporting capabilities, the program empowers users to identify and mitigate malware risks effectively.
