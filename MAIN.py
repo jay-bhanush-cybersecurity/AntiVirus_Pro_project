@@ -20,7 +20,7 @@ from datetime import datetime
 
 # Define paths relative to the script's directory
 # Add YARA rules with .yara extension
-# I have used YARA rules from this repositery
+# I have used YARA rules from this repositories :- https://github.com/reversinglabs/reversinglabs-yara-rules/tree/develop
 YARA_RULES = [
     # Add full paths for example :- 
     #"D:\\antivirus_pro_1\\reversinglabs-yara-rules-develop\\reversinglabs-yara-rules-develop\\yara\\backdoor\\Win32.Backdoor.Konni.yara",
